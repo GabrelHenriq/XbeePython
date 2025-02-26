@@ -1,5 +1,6 @@
 from coord import setup_coordinator
 from router import setup_router
+import time  # ADICIONADO para a espera do listener
 
 def main():
     print("Iniciando a configuração do Coordenador e Roteador...")
@@ -40,6 +41,10 @@ def main():
         print("Mensagem enviada com sucesso!")
     except Exception as e:
         print(f"Erro ao enviar mensagem: {e}")
+
+    # ADICIONADO: Tempo para o listener do Roteador receber mensagens
+    print("\nAguardando resposta do Roteador...")
+    time.sleep(10)
 
     # Fechar as conexões
     if coordinator.is_open():
